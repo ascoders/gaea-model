@@ -45,8 +45,9 @@ declare namespace FitGaea {
         gaeaNativeEventData?: Array<EventData>
         /**
          * 存储变量信息
+         * TODO: ObservableMap<VariableData>
          */
-        gaeaVariables?: Array<VariableData>
+        gaeaVariables?: any
 
         [x: string]: any
     }
@@ -69,7 +70,7 @@ declare namespace FitGaea {
         /**
          * 用户填入的值
          */
-        value: number|string
+        value: number | string
     }
 
     /**
@@ -92,7 +93,7 @@ declare namespace FitGaea {
     /**
      * 组件的值
      */
-    export type ComponentPropsOptionValue = number|string|boolean|Array<ComponentPropsOptionsArrayValue>|any
+    export type ComponentPropsOptionValue = number | string | boolean | Array<ComponentPropsOptionsArrayValue> | any
 
     /**
      * 组件配置
@@ -126,7 +127,7 @@ declare namespace FitGaea {
         /**
          * 值类型, 默认为字符串
          */
-            type?: string
+        type?: string
         /**
          * 为空时的值，默认为 null
          */
@@ -134,7 +135,7 @@ declare namespace FitGaea {
         /**
          * 控制 number 单位
          */
-            number?: {
+        number?: {
             units: Array<Number>
             currentUnit: string
             max?: number
@@ -151,10 +152,6 @@ declare namespace FitGaea {
         instance?: Array<{
             [key: string]: ComponentPropsOptionValue
         }>
-        /**
-         * 是否可以为变量
-         */
-        canVariable?: boolean
     }
 
     /**
@@ -274,20 +271,20 @@ declare namespace FitGaea {
          * 类型
          * number string boolean
          */
-            type: string
+        type: string
     }
 
     /**
      * 标识哪些字段用什么变量
      */
     export interface VariableData {
-        field: string
-        // 变量类型 globalParam
+        // 变量类型
+        // 比如是外部传参，还是全局变量
         variableType: string
-        // 值类型 string number boolean
-        valueType: string
         // 变量的哪个字段
         variableField: string
+        // 值类型 string number boolean
+        valueType: string
     }
 
     /**

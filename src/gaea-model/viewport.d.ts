@@ -8,7 +8,7 @@ declare namespace FitGaea {
          */
         props: ComponentProps
         /**
-         * 子元素（gaea-layout才有）
+         * 子元素（canDragIn才有）
          * 只存子元素在 map 中的 key
          */
         layoutChilds?: Array<string>
